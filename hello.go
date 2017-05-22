@@ -5,6 +5,10 @@ import (
 	"time"
 )
 
+var c, python, java bool
+
+const Pi = 3.14
+
 func add(x int, y int) int {
 	return x + y
 }
@@ -20,6 +24,14 @@ func split(sum int) (x, y int) {
 }
 
 func main() {
+	const World = "世界"
+	fmt.Println("Hello", World)
+	fmt.Println("Happy", Pi, "Day")
+
+	var i int
+	k := 3
+	fmt.Println(i, k, c, python, java)
+
 	fmt.Println("Welcome to the playground!")
 	fmt.Println("The time is", time.Now())
 
