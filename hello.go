@@ -9,6 +9,11 @@ var c, python, java bool
 
 const Pi = 3.14
 
+type Vertex struct {
+	X int
+	Y int
+}
+
 func add(x int, y int) int {
 	return x + y
 }
@@ -24,6 +29,9 @@ func split(sum int) (x, y int) {
 }
 
 func main() {
+
+	fmt.Println(Vertex{1, 2})
+
 	defer fmt.Println("defer_world")
 	fmt.Println("hello")
 
