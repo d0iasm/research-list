@@ -29,6 +29,18 @@ func split(sum int) (x, y int) {
 }
 
 func main() {
+	i, j := 42, 2701
+
+	p := &i
+	fmt.Println("read i through the pointer: ", *p)
+	fmt.Println("see i pointer: ", p)
+
+	*p = 21
+	fmt.Println("see the new value of i: ", i)
+
+	p = &j
+	*p = *p / 37
+	fmt.Println("see the new value of j: ", j)
 
 	fmt.Println(Vertex{1, 2})
 
@@ -36,8 +48,8 @@ func main() {
 	fmt.Println("hello")
 
 	sum := 0
-	for i := 0; i < 10; i++ {
-		sum += i
+	for k := 0; i < 10; i++ {
+		sum += k
 	}
 	fmt.Println(sum)
 
@@ -45,9 +57,9 @@ func main() {
 	fmt.Println("Hello", World)
 	fmt.Println("Happy", Pi, "Day")
 
-	var i int
+	var n int
 	k := 3
-	fmt.Println(i, k, c, python, java)
+	fmt.Println(n, k, c, python, java)
 
 	fmt.Println("Welcome to the playground!")
 	fmt.Println("The time is", time.Now())
