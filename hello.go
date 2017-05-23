@@ -24,6 +24,9 @@ func split(sum int) (x, y int) {
 }
 
 func main() {
+	defer fmt.Println("defer_world")
+	fmt.Println("hello")
+
 	sum := 0
 	for i := 0; i < 10; i++ {
 		sum += i
