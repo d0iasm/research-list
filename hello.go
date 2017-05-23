@@ -24,6 +24,12 @@ func split(sum int) (x, y int) {
 }
 
 func main() {
+	sum := 0
+	for i := 0; i < 10; i++ {
+		sum += i
+	}
+	fmt.Println(sum)
+
 	const World = "世界"
 	fmt.Println("Hello", World)
 	fmt.Println("Happy", Pi, "Day")
