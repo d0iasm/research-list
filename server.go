@@ -15,6 +15,10 @@ func getRoot(c echo.Context) error {
 func initDB(filepath string) *sql.DB {
 	db, err := sql.Open("sqlite3", filepath)
 
+	if err != nil {
+		panic(err)
+	}
+
 	if db == nil {
 		panic("db nil")
 	}
