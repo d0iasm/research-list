@@ -38,3 +38,22 @@ func GetPapers(db *sql.DB) PaperCollection {
 	}
 	return result
 }
+
+func PutPaper(db *sql.DB, name string) (int64, error) {
+	sql := "INSERT INTO papers(name) VALUES(?)"
+
+	stmt, err := db.Prepare(sql)
+
+	if err != nil {
+		panic(err)
+	}
+
+	defer stmt.Close()
+
+	result, err2 := stmt.Exec(name)
+
+	if err2 != nil {
+		panic(err2)
+	}
+	return result.LastInsertId()
+}
