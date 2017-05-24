@@ -1,9 +1,9 @@
 package main
 
 import (
+	"d0iasm/handlers"
 	"database/sql"
 	"github.com/labstack/echo"
-	"go-echo-vue/handlers"
 	// "github.com/labstack/echo/engine/standard"
 	_ "github.com/mattn/go-sqlite3"
 	"net/http"
@@ -47,6 +47,11 @@ func main() {
 	migrate(db)
 
 	e := echo.New()
+
 	e.GET("/", getRoot)
+	e.GET("/papers", handlers.GetPapers(db))
+	e.PUT("/papers", handlers.PutPaper(db))
+	e.DELETE("/papers/:id", handlers.DeletePaper(db))
+
 	e.Logger.Fatal(e.Start(":1323"))
 }
