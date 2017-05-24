@@ -1,4 +1,4 @@
-package main
+package researchList
 
 import (
 	"database/sql"
