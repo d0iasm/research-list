@@ -77,7 +77,7 @@
                         });
                     },
 
-                    deletepaper: function(index) {
+                    deletePaper: function(index) {
                         this.$http.delete('/papers/' + this.papers[index].id).success(function(response) {
                             this.papers.splice(index, 1)
                             console.log("paper deleted!")

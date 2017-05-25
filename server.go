@@ -3,11 +3,8 @@ package main
 import (
 	"./handlers"
 	"database/sql"
-	// "github.com/d0iasm/research-list/handlers"
 	"github.com/labstack/echo"
-	// "github.com/labstack/echo/engine/standard"
 	_ "github.com/mattn/go-sqlite3"
-	"net/http"
 )
 
 func main() {
@@ -16,7 +13,7 @@ func main() {
 
 	e := echo.New()
 
-	e.GET("/", "public/index.html")
+	e.File("/", "public/index.html")
 	e.GET("/papers", handlers.GetPapers(db))
 	e.PUT("/papers", handlers.PutPaper(db))
 	e.DELETE("/papers/:id", handlers.DeletePaper(db))
