@@ -10,8 +10,18 @@ import (
 	"net/http"
 )
 
-func getRoot(c echo.Context) error {
-	return c.String(http.StatusOK, "Hello, World!")
+func main() {
+	db := initDB("storage.db")
+	migrate(db)
+
+	e := echo.New()
+
+	e.GET("/", "public/index.html")
+	e.GET("/papers", handlers.GetPapers(db))
+	e.PUT("/papers", handlers.PutPaper(db))
+	e.DELETE("/papers/:id", handlers.DeletePaper(db))
+
+	e.Logger.Fatal(e.Start(":1323"))
 }
 
 func initDB(filepath string) *sql.DB {
@@ -41,18 +51,4 @@ func migrate(db *sql.DB) {
 	if err != nil {
 		panic(err)
 	}
-}
-
-func main() {
-	db := initDB("storage.db")
-	migrate(db)
-
-	e := echo.New()
-
-	e.GET("/", getRoot)
-	e.GET("/papers", handlers.GetPapers(db))
-	e.PUT("/papers", handlers.PutPaper(db))
-	e.DELETE("/papers/:id", handlers.DeletePaper(db))
-
-	e.Logger.Fatal(e.Start(":1323"))
 }
