@@ -6,7 +6,6 @@ import (
 	"strconv"
 
 	"../models"
-	// "go-echo-vue/models"
 
 	"github.com/labstack/echo"
 )
