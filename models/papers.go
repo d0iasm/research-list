@@ -26,9 +26,9 @@ func GetPapers(db *sql.DB) PaperCollection {
 	defer rows.Close()
 
 	result := PaperCollection{}
-	for row.Next() {
+	for rows.Next() {
 		paper := Paper{}
-		err2 := rows.Scan(&paper.Id, &paper.Name)
+		err2 := rows.Scan(&paper.ID, &paper.Name)
 
 		if err2 != nil {
 			panic(err2)

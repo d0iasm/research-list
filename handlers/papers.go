@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"./models"
+	"../models"
 	// "go-echo-vue/models"
 
 	"github.com/labstack/echo"
@@ -30,7 +30,7 @@ func PutPaper(db *sql.DB) echo.HandlerFunc {
 
 		if err == nil {
 			return c.JSON(http.StatusCreated, H{
-				"created": 123,
+				"created": id,
 			})
 		} else {
 			return err
