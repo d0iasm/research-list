@@ -7,8 +7,9 @@ import (
 )
 
 type Paper struct {
-	ID   int    `json:"id"`
-	Name string `json:"name"`
+	ID    int    `json:"id"`
+	Name  string `json:"name"`
+	Title string `json:"name"`
 }
 
 type PaperCollection struct {
@@ -28,7 +29,8 @@ func GetPapers(db *sql.DB) PaperCollection {
 	result := PaperCollection{}
 	for rows.Next() {
 		paper := Paper{}
-		err2 := rows.Scan(&paper.ID, &paper.Name)
+		//err2 := rows.Scan(&paper.ID, &paper.Name)
+		err2 := rows.Scan(&paper.ID, &paper.Title)
 
 		if err2 != nil {
 			panic(err2)
@@ -40,7 +42,8 @@ func GetPapers(db *sql.DB) PaperCollection {
 }
 
 func PutPaper(db *sql.DB, name string) (int64, error) {
-	sql := "INSERT INTO papers(name) VALUES(?)"
+	//sql := "INSERT INTO papers(name) VALUES(?)"
+	sql := "INSERT INTO papers(title) VALUES(?)"
 
 	stmt, err := db.Prepare(sql)
 
@@ -50,7 +53,8 @@ func PutPaper(db *sql.DB, name string) (int64, error) {
 
 	defer stmt.Close()
 
-	result, err2 := stmt.Exec(name)
+	//result, err2 := stmt.Exec(name)
+	result, err2 := stmt.Exec(title)
 
 	if err2 != nil {
 		panic(err2)

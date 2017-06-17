@@ -25,7 +25,8 @@ func PutPaper(db *sql.DB) echo.HandlerFunc {
 
 		c.Bind(&paper)
 
-		id, err := models.PutPaper(db, paper.Name)
+		//id, err := models.PutPaper(db, paper.Name)
+		id, err := models.PutPaper(db, paper.Title)
 
 		if err == nil {
 			return c.JSON(http.StatusCreated, H{
