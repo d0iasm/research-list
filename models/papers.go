@@ -41,7 +41,7 @@ func GetPapers(db *sql.DB) PaperCollection {
 	return result
 }
 
-func PutPaper(db *sql.DB, name string) (int64, error) {
+func PutPaper(db *sql.DB, title string) (int64, error) {
 	//sql := "INSERT INTO papers(name) VALUES(?)"
 	sql := "INSERT INTO papers(title) VALUES(?)"
 

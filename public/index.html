@@ -17,7 +17,7 @@
                     <h2>Research Papers</h2>
                     <ul class="list-group">
                         <li class="list-group-item" v-for="paper in papers">
-                            {{ paper.name }}
+                            {{ paper.title }}
                             <span class="pull-right">
                                 <button class="btn btn-xs btn-danger" v-on:click="deletePaper($index)">
                                     <i class="fa fa-trash-o" aria-hidden="true"></i>
@@ -26,11 +26,11 @@
                         </li>
                     </ul>
                     <div class="input-group">
-                        <input type="text" 
-                            class="form-control" 
-                            placeholder="New paper" 
+                        <input type="text"
+                            class="form-control"
+                            placeholder="New paper"
                             v-on:keyup.enter="createPaper"
-                            v-model="newPaper.name">
+                            v-model="newPaper.title">
 
                         <span class="input-group-btn">
                             <button class="btn btn-primary" type="button" v-on:click="createPaper">Create</button>
@@ -61,7 +61,7 @@
 
 
 
-                        if (!$.trim(this.newPaper.name)) {
+                        if (!$.trim(this.newPaper.title)) {
                             this.newPaper = {}
                             return
                         }
