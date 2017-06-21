@@ -7,9 +7,11 @@ import (
 )
 
 type Paper struct {
-	ID    int    `json:"id"`
-	Name  string `json:"name"`
+	ID int `json:"id"`
 	Title string `json:"name"`
+	Author string `json:"name"`
+	Journal string `json:"name"`
+	Year int16 `json:"name"`
 }
 
 type PaperCollection struct {
