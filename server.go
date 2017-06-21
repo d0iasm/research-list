@@ -39,8 +39,10 @@ func migrate(db *sql.DB) {
 	sql := `
 	CREATE TABLE IF NOT EXISTS papers(
 		id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-		name VARCHAR,
-		title VARCHAR NOT NULL
+		title VARCHAR NOT NULL,
+		author VARCHAR,
+		journal VARCHAR,
+		year YEAR
 	);
 	`
 
