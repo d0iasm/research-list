@@ -9,9 +9,9 @@ import (
 type Paper struct {
 	ID int `json:"id"`
 	Title string `json:"name"`
-	Author string `json:"name"`
-	Journal string `json:"name"`
-	Year int16 `json:"name"`
+	Author string `json:"author"`
+	Journal string `json:"journal"`
+	Year int16 `json:"year"`
 }
 
 type PaperCollection struct {
