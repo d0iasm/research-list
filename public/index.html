@@ -25,17 +25,27 @@
                             </span>
                         </li>
                     </ul>
-                    <div class="input-group">
-                        <input type="text"
-                            class="form-control"
-                            placeholder="New paper"
-                            v-on:keyup.enter="createPaper"
-                            v-model="newPaper.title">
-
-                        <span class="input-group-btn">
-                            <button class="btn btn-primary" type="button" v-on:click="createPaper">Create</button>
-                        </span>
-                    </div>
+		    <form class="form-inline">
+			<div class="form-group">
+                            <input type="text"
+				   class="form-control"
+				   placeholder="New paper"
+				   v-on:keyup.enter="createPaper"
+				   v-model="newPaper.title">
+			</div>
+			<div class="form-group">
+			    <input type="text"
+				   class="form-control"
+				   placeholder="author"
+				   v-on:keyup.enter="createPaper"
+				   v-model="newPaper.author">
+			</div>
+			<div class="form-group">
+                            <span class="input-group-btn">
+				<button class="btn btn-primary" type="button" v-on:click="createPaper">Create</button>
+                            </span>
+			</div>
+		    </form>
                 </div>
             </div>
         </div>
