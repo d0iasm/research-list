@@ -2,6 +2,7 @@
     <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
         <title>Research List</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
@@ -29,7 +30,7 @@
 			<div class="form-group">
                             <input type="text"
 				   class="form-control"
-				   placeholder="New paper"
+				   placeholder="title"
 				   v-on:keyup.enter="createPaper"
 				   v-model="newPaper.title">
 			</div>
@@ -55,9 +56,7 @@
 				   v-model="newPaper.year">
 			</div>
 			<div class="form-group">
-                            <span class="input-group-btn">
-				<button class="btn btn-primary" type="button" v-on:click="createPaper">Create</button>
-                            </span>
+			    <button class="btn btn-primary" type="button" v-on:click="createPaper">Create</button>
 			</div>
 		    </form>
                 </div>
