@@ -32,7 +32,7 @@ func GetPapers(db *sql.DB) PaperCollection {
 	for rows.Next() {
 		paper := Paper{}
 		//err2 := rows.Scan(&paper.ID, &paper.Name)
-		err2 := rows.Scan(&paper.ID, &paper.Title)
+		err2 := rows.Scan(&paper.ID, &paper.Title, &paper.Author, &paper.Journal, &paper.Year)
 
 		if err2 != nil {
 			panic(err2)
