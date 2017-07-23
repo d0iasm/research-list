@@ -43,6 +43,7 @@ func GetPapers(db *sql.DB) PaperCollection {
 	return result
 }
 
+// func PutPaper(db *sql.DB, title string) (int64, error) {
 func PutPaper(db *sql.DB, title, author, journal string, year int16) (int64, error) {
 	//sql := "INSERT INTO papers(name) VALUES(?)"
 	sql := "INSERT INTO papers(title, author, journal, year) VALUES(?)"
@@ -55,8 +56,8 @@ func PutPaper(db *sql.DB, title, author, journal string, year int16) (int64, err
 
 	defer stmt.Close()
 
-	//result, err2 := stmt.Exec(name)
-	result, err2 := stmt.Exec(title, author, journal, year)
+	result, err2 := stmt.Exec(sql)
+	// result, err2 := stmt.Exec(title, author, journal, year)
 
 	if err2 != nil {
 		panic(err2)
