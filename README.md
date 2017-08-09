@@ -28,5 +28,3 @@ go run server.go
 ```
 Then can be checked on your browser to [http://localhost:1323/](http://localhost:1323/)  
 
-## Author
-[d0iasm](https://github.com/d0iasm)
