@@ -48,56 +48,53 @@
 				    </span>
 				</td>
 			    </tr>
+			    <tr>
+				<form>
+				    <td>
+					<div class="form-group">
+					    <input type="text"
+						   class="form-control"
+						   placeholder="title"
+						   v-on:keyup.enter="createPaper"
+						   v-model="newPaper.title">
+					</div>
+				    </td>
+				    <td>
+					<div class="form-group">
+					    <input type="text"
+						   class="form-control"
+						   placeholder="author"
+						   v-on:keyup.enter="createPaper"
+						   v-model="newPaper.author">
+					</div>
+				    </td>
+				    <td>
+					<div class="form-group">
+					    <input type="text"
+						   class="form-control"
+						   placeholder="journal"
+						   v-on:keyup.enter="createPaper"
+						   v-model="newPaper.journal">
+					</div>
+				    </td>
+				    <td>
+					<div class="form-group">
+					    <input type="text"
+						   class="form-control"
+						   placeholder="year"
+						   v-on:keyup.enter="createPaper"
+						   v-model="newPaper.year">
+					</div>
+				    </td>
+				    <td>
+					<div class="form-group">
+					    <button class="btn btn-primary" type="button" v-on:click="createPaper">Create</button>
+					</div>
+				</form>
+			    </tr>
 			</tbody>
 		    </table>
-		    
-                    <ul class="list-group">
-                        <li class="list-group-item" v-for="paper in papers">
-                            {{ paper.title }}
-			</li>
-			<li class="list-group-item" v-for="paper in papers">
-			    {{ paper.author }}
-                            <span class="pull-right">
-                                <button class="btn btn-xs btn-danger" v-on:click="deletePaper($index)">
-                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                </button>
-                            </span>
-                        </li>
-                    </ul>
-		    
-		    <form class="form-inline">
-			<div class="form-group">
-                            <input type="text"
-				   class="form-control"
-				   placeholder="title"
-				   v-on:keyup.enter="createPaper"
-				   v-model="newPaper.title">
-			</div>
-			<div class="form-group">
-			    <input type="text"
-				   class="form-control"
-				   placeholder="author"
-				   v-on:keyup.enter="createPaper"
-				   v-model="newPaper.author">
-			</div>
-			<div class="form-group">
-			    <input type="text"
-				   class="form-control"
-				   placeholder="journal"
-				   v-on:keyup.enter="createPaper"
-				   v-model="newPaper.journal">
-			</div>
-			<div class="form-group">
-			    <input type="text"
-				   class="form-control"
-				   placeholder="year"
-				   v-on:keyup.enter="createPaper"
-				   v-model="newPaper.year">
-			</div>
-			<div class="form-group">
-			    <button class="btn btn-primary" type="button" v-on:click="createPaper">Create</button>
-			</div>
-		    </form>
+
                 </div>
             </div>
         </div>
