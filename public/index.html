@@ -16,9 +16,47 @@
             <div class="row">
                 <div class="col-md-12">
                     <h2>Research Papers</h2>
+		    <table class="table">
+			<thead class="thead-inverse">
+			    <tr>
+				<th>title</th>
+				<th>author</th>
+				<th>journal</th>
+				<th>year</th>
+				<th></th>
+			    </tr>
+			</thead>
+			<tbody>
+			    <tr v-for="paper in papers">
+				<td>
+				    {{ paper.title }}
+				</td>
+				<td>
+				    {{ paper.author }}
+				</td>
+				<td>
+				    {{ paper.journal }}
+				</td>
+				<td>
+				    {{ paper.year }}
+				</td>
+				<td>
+				    <span class="pull-right">
+					<button class="btn btn-xs btn-danger" v-on:click="deletePaper($index)">
+					    <i class="fa fa-trash-o" aria-hidden="true"></i>
+					</button>
+				    </span>
+				</td>
+			    </tr>
+			</tbody>
+		    </table>
+		    
                     <ul class="list-group">
                         <li class="list-group-item" v-for="paper in papers">
                             {{ paper.title }}
+			</li>
+			<li class="list-group-item" v-for="paper in papers">
+			    {{ paper.author }}
                             <span class="pull-right">
                                 <button class="btn btn-xs btn-danger" v-on:click="deletePaper($index)">
                                     <i class="fa fa-trash-o" aria-hidden="true"></i>
@@ -26,6 +64,7 @@
                             </span>
                         </li>
                     </ul>
+		    
 		    <form class="form-inline">
 			<div class="form-group">
                             <input type="text"
@@ -64,49 +103,49 @@
         </div>
 
         <script>
-            new Vue({
-                el: 'body',
+         new Vue({
+             el: 'body',
 
-                data: {
-                    papers: [],
-                    newPaper: {}
-                },
+             data: {
+                 papers: [],
+                 newPaper: {}
+             },
 
-                created: function() {
-                    this.$http.get('/papers').then(function(response) {
-                        this.papers = response.data.items ? response.data.items : []
-                    })
-                },
+             created: function() {
+                 this.$http.get('/papers').then(function(response) {
+                     this.papers = response.data.items ? response.data.items : []
+                 })
+             },
 
-                methods: {
-                    createPaper: function() {
+             methods: {
+                 createPaper: function() {
 
-                        if (!$.trim(this.newPaper.title)) {
-                            this.newPaper = {}
-                            return
-                        }
+                     if (!$.trim(this.newPaper.title)) {
+                         this.newPaper = {}
+                         return
+                     }
 
-                        this.$http.put('/papers', this.newPaper).success(function(response) {
-                            this.newPaper.id = response.created
-                            this.papers.push(this.newPaper)
-                            console.log("paper created!")
-                            console.log(this.newPaper)
-                            this.newPaper = {}
-                        }).error(function(error) {
-                            console.log(error)
-                        });
-                    },
+                     this.$http.put('/papers', this.newPaper).success(function(response) {
+                         this.newPaper.id = response.created
+                         this.papers.push(this.newPaper)
+                         console.log("paper created!")
+                         console.log(this.newPaper)
+                         this.newPaper = {}
+                     }).error(function(error) {
+                         console.log(error)
+                     });
+                 },
 
-                    deletePaper: function(index) {
-                        this.$http.delete('/papers/' + this.papers[index].id).success(function(response) {
-                            this.papers.splice(index, 1)
-                            console.log("paper deleted!")
-                        }).error(function(error) {
-                            console.log(error)
-                        })
-                    }
-                }
-            })
+                 deletePaper: function(index) {
+                     this.$http.delete('/papers/' + this.papers[index].id).success(function(response) {
+                         this.papers.splice(index, 1)
+                         console.log("paper deleted!")
+                     }).error(function(error) {
+                         console.log(error)
+                     })
+                 }
+             }
+         })
         </script>
     </body>
 </html>
