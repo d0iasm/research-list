@@ -11,7 +11,7 @@ type Paper struct {
 	Title string `json:"name"`
 	Author string `json:"author"`
 	Journal string `json:"journal"`
-	Year int16 `json:"year"`
+	Year string `json:"year"`
 }
 
 type PaperCollection struct {
@@ -44,7 +44,7 @@ func GetPapers(db *sql.DB) PaperCollection {
 }
 
 // func PutPaper(db *sql.DB, title string) (int64, error) {
-func PutPaper(db *sql.DB, title, author, journal string, year int16) (int64, error) {
+func PutPaper(db *sql.DB, title, author, journal, year string) (int64, error) {
 	//sql := "INSERT INTO papers(name) VALUES(?)"
 	sql := "INSERT INTO papers(title, author, journal, year) VALUES(?)"
 

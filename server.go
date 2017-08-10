@@ -42,7 +42,7 @@ func migrate(db *sql.DB) {
 		title VARCHAR NOT NULL,
 		author VARCHAR,
 		journal VARCHAR,
-		year YEAR
+		year VARCHAR
 	);
 	`
 
