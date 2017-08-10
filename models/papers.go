@@ -31,7 +31,6 @@ func GetPapers(db *sql.DB) PaperCollection {
 	result := PaperCollection{}
 	for rows.Next() {
 		paper := Paper{}
-		//err2 := rows.Scan(&paper.ID, &paper.Name)
 		err2 := rows.Scan(&paper.ID, &paper.Title, &paper.Author, &paper.Journal, &paper.Year)
 
 		if err2 != nil {
@@ -43,10 +42,8 @@ func GetPapers(db *sql.DB) PaperCollection {
 	return result
 }
 
-// func PutPaper(db *sql.DB, title string) (int64, error) {
 func PutPaper(db *sql.DB, title, author, journal, year string) (int64, error) {
-	//sql := "INSERT INTO papers(name) VALUES(?)"
-	sql := "INSERT INTO papers(title, author, journal, year) VALUES(?)"
+	sql := "INSERT INTO papers(title, author, journal, year) VALUES(title, author, journal,  year)"
 
 	stmt, err := db.Prepare(sql)
 
@@ -57,7 +54,6 @@ func PutPaper(db *sql.DB, title, author, journal, year string) (int64, error) {
 	defer stmt.Close()
 
 	result, err2 := stmt.Exec(sql)
-	// result, err2 := stmt.Exec(title, author, journal, year)
 
 	if err2 != nil {
 		panic(err2)
